@@ -20,9 +20,13 @@
         android:name="edu.itesm.stanley.MovieFragment"
         android:label="fragment_movie"
         tools:layout="@layout/fragment_movie" >
-        <argument
-            android:name="movieInfo"
-            app:argType="edu.itesm.stanley.Movie" />
+        <action
+            android:id="@+id/action_moviesFragment_to_movieFragment"
+            app:destination="@id/movieFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/moviesFragment"
@@ -41,5 +45,18 @@
         android:id="@+id/actorskFragment"
         android:name="edu.itesm.stanley.ActorskFragment"
         android:label="fragment_actorsk"
-        tools:layout="@layout/fragment_actorsk" />
+        tools:layout="@layout/fragment_actorsk" >
+        <action
+            android:id="@+id/action_actorskFragment_to_actorkFragment"
+            app:destination="@id/actork2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/actork2Fragment"
+        android:name="edu.itesm.stanley.ActorkFragment"
+        android:label="fragment_actork2"
+        tools:layout="@layout/fragment_actork2" >
+        <argument
+            android:name="actorInfo"
+            app:argType="edu.itesm.stanley.Actor" />
+    </fragment>
 </navigation>
