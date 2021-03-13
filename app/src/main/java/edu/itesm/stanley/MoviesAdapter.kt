@@ -28,17 +28,18 @@ class MoviesAdapter(private val movies : List<Movie>)
 
     //Asocia datos con los elementos del renglón
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie= movies[position]
+        val movie = movies[position]
         holder.foto.setImageResource(movie.picture)
         holder.titulo.text = movie.titulo
         holder.anio.text = movie.anio
         holder.plot.text = movie.plot
-        /*holder.itemView.setOnClickListener{
-            holder.itemView.findNavController().navigate(R.id.action_moviesFragment_to_movieFragment, movie)
-        }*/
-        holder.itemView.setOnClickListener(
+        holder.itemView.setOnClickListener {
+            val action = MoviesFragmentDirections.actionMoviesFragmentToMovieFragment(movie)
+            holder.itemView.findNavController().navigate(action)
+        }
+        /*holder.itemView.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_moviesFragment_to_movieFragment, null)
-        )
+        )*/
 
     }
 

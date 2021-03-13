@@ -15,7 +15,7 @@ class ActorskAdapter(private val actors : List<Actor>)
     inner class ActorViewHolder(renglon: View) : RecyclerView.ViewHolder(renglon){
         var nombre = renglon.findViewById<TextView>(R.id.nombre)
         var pelicula = renglon.findViewById<TextView>(R.id.pelicula)
-        var bio = renglon.findViewById<TextView>(R.id.bio)
+        var bio = renglon.findViewById<TextView>(R.id.bios)
         var foto = renglon.findViewById<ImageView>(R.id.foto)
     }
 
@@ -33,12 +33,13 @@ class ActorskAdapter(private val actors : List<Actor>)
         holder.nombre.text = actor.nombre
         holder.pelicula.text = actor.pelicula
         holder.bio.text = actor.bio
-        /*holder.itemView.setOnClickListener{
-            holder.itemView.findNavController().navigate(R.id.action_moviesFragment_to_movieFragment, movie)
-        }*/
-        holder.itemView.setOnClickListener(
+        holder.itemView.setOnClickListener {
+            val action = ActorskFragmentDirections.actionActorskFragmentToActorkFragment(actor)
+            holder.itemView.findNavController().navigate(action)
+        }
+        /*holder.itemView.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_actorskFragment_to_actorkFragment, null)
-        )
+        )*/
 
     }
 
